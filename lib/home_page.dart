@@ -39,6 +39,8 @@ class _HomePageState extends State<HomePage> {
     allNotes = noteHandler.getNotes();
     noteHandler.init().whenComplete(() async {
       await addDummyNotes();
+      allNotes = noteHandler.getNotes();
+      setState(() {});
     });
   }
 
