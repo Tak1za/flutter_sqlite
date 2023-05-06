@@ -34,22 +34,22 @@ class NoteProvider {
     return List.generate(
       notes.length,
       (index) => Note(
-        notes[index]['id'] as int,
-        notes[index]['title'] as String,
-        notes[index]['content'] as String,
+        id: notes[index]['id'] as int,
+        title: notes[index]['title'] as String,
+        content: notes[index]['content'] as String,
       ),
     );
   }
 
   // UPDATE
-  Future<int> updateNote(int id, Note note) async {
+  Future<int> updateNote(Note note) async {
     final db = await init();
 
     return await db.update(
       "notes",
       note.toMap(),
       where: "id = ?",
-      whereArgs: [id],
+      whereArgs: [note.id],
     );
   }
 

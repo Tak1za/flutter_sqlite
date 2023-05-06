@@ -1,9 +1,9 @@
 class Note {
-  final int id;
+  final int? id;
   final String? title;
   final String? content;
 
-  Note(this.id, this.title, this.content);
+  Note({this.id, this.title, this.content});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{"id": id, "title": title, "content": content};

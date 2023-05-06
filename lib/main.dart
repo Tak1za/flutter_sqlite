@@ -1,35 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sqlite/home_page.dart';
-import 'package:flutter_sqlite/models/note.dart';
-import 'package:flutter_sqlite/providers/note_provider.dart';
 
 void main() async {
-  // runApp(const MyApp());
-  WidgetsFlutterBinding.ensureInitialized();
-  var noteDB = NoteProvider();
-
-  final note = Note(
-    1,
-    'Title 1',
-    'Note 1',
-  );
-
-  await noteDB.addNote(note);
-  var notes = await noteDB.getNotes();
-  print(notes[0].title); //Title 1
-
-  final newNote = Note(
-    note.id,
-    'Title 1 changed',
-    note.content,
-  );
-
-  await noteDB.updateNote(note.id, newNote);
-  var updatedNotes = await noteDB.getNotes();
-  print(updatedNotes[0].title); //Title 1 changed
-
-  await noteDB.deleteNote(note.id);
-  print(await noteDB.getNotes()); //[]
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
